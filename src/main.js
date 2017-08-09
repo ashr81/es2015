@@ -1,42 +1,35 @@
 "use strict"
-/*
-function testVar(){
-  var a = 30;
-  if(true){
-    var a = 50;
-    console.log(a);
+
+class User{
+  constructor(username, email, password){
+    this.username = username;
+    this.email = email;
+    this.password = password;
   }
-  console.log(a)
-}
-
-function testLet(){
-  let a = 30;
-  if(true){
-    let a = 50;
-    console.log(a)
+  static userCount(){
+    console.log("Registered users count is 50.");
   }
-  console.log(a)
+  register(){
+    console.log(this.username+" is registered user.")
+  }
 }
-testVar();
-// print 50 and 50
-testLet();
-// print 50 and 30
 
-for(var i = 0; i < 10; i++ ){
-  console.log(i)
+let bob = new User('bob', 'bob@bob.com', '******');
+bob.register();
+User.userCount();
+
+class Member extends User{
+  constructor(username, email, password, memberPackage){
+    super(username, email, password);
+    this.package = memberPackage;
+  }
+
+  getPackage(){
+    console.log(this.username+' is subscribed to '+this.package+' package')
+  }
 }
-console.log(i); // print this print 10
 
-for(let i = 0; i < 10; i++ ){
-  console.log(i);
-}
-console.log(i); // its undefined here.
-
-const colors = [];
-colors.push('red');
-colors.push('blue');
-
-colors = 'Green'; // throws an error. can't change the value itself. but can add into it.
-
-console.log(colors);
-*/
+let mike = new Member('mike','mike@mike.com', '****', 'standard')
+mike.getPackage();
+mike.register();
+Member.userCount();
