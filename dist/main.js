@@ -1,27 +1,8 @@
 "use strict";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var User = function () {
-  function User(username, email, password) {
-    _classCallCheck(this, User);
-
-    this, username = username;
-    this.email = email;
-    this.password = password;
-  }
-
-  _createClass(User, [{
-    key: "register",
-    value: function register() {
-      console.log(this.username + " is registered user.");
-    }
-  }]);
-
-  return User;
-}();
-
-var bob = new User('bob', 'bob@bob.com', '******');
-bob.register();
+var name = "Ashrith";
+function makeUpperCase(word) {
+  return word.toUpperCase();
+}
+var templateLiteral = '<div>Hello ${name}</div>' + '<p>I am not text.</p>' + ("<div>How string literal is used?</div>\n<p>This is how it's used for new line and large html elements</p>\n<span>No need of any concatination.</span>\n<p> name is " + name + " in upcase " + makeUpperCase('Javascript') + "</p>");
+document.getElementById('template').innerHTML = templateLiteral;

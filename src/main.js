@@ -1,35 +1,15 @@
 "use strict"
 
-class User{
-  constructor(username, email, password){
-    this.username = username;
-    this.email = email;
-    this.password = password;
-  }
-  static userCount(){
-    console.log("Registered users count is 50.");
-  }
-  register(){
-    console.log(this.username+" is registered user.")
-  }
+
+let name = "Ashrith";
+function makeUpperCase(word){
+  return word.toUpperCase();
 }
-
-let bob = new User('bob', 'bob@bob.com', '******');
-bob.register();
-User.userCount();
-
-class Member extends User{
-  constructor(username, email, password, memberPackage){
-    super(username, email, password);
-    this.package = memberPackage;
-  }
-
-  getPackage(){
-    console.log(this.username+' is subscribed to '+this.package+' package')
-  }
-}
-
-let mike = new Member('mike','mike@mike.com', '****', 'standard')
-mike.getPackage();
-mike.register();
-Member.userCount();
+let templateLiteral =
+'<div>Hello ${name}</div>'+
+'<p>I am not text.</p>'+
+`<div>How string literal is used?</div>
+<p>This is how it's used for new line and large html elements</p>
+<span>No need of any concatination.</span>
+<p> name is ${name} in upcase ${makeUpperCase('Javascript')}</p>`
+document.getElementById('template').innerHTML = templateLiteral;
