@@ -1,20 +1,24 @@
 "use strict";
 
-// Default Parameters
-
-function greet() {
-  var greeting = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Hello World';
-
-  console.log(greeting);
+function Prefixer(prefix) {
+  this.prefix = prefix;
 }
-greet();
 
-// Spread operator.
+Prefixer.prototype.prefixArray05 = function (arr) {
+  var that = this;
+  return arr.map(function (x) {
+    console.log(that.prefix + x);
+  });
+};
 
-var args = [1, 2, 3];
+Prefixer.prototype.prefixArray06 = function (arr) {
+  var _this = this;
 
-function test() {
-  console.log(args);
-}
-test.apply(args);
-test.apply(undefined, args);
+  return arr.map(function (x) {
+    console.log(_this.prefix + x);
+  });
+};
+
+var pre = new Prefixer('Hello ');
+pre.prefixArray05(['ashr', 'ashr81']);
+pre.prefixArray06(['red', 'did']);
